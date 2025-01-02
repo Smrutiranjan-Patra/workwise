@@ -43,7 +43,8 @@ const bookSeats = async (req, res) => {
 
   if (seatCount <= 0 || seatCount > 7) {
     return res.status(400).json({
-      error: "Seat count must be greater than 0 and less than or equal to 7",
+      success : false,
+      message: "Seat count must be greater than 0 and less than or equal to 7",
     });
   }
 
@@ -57,7 +58,8 @@ const bookSeats = async (req, res) => {
 
     if (availableSeats.length < seatCount) {
       return res.status(400).json({
-        error: "Not enough seats available",
+        success: false,
+        message: "Not enough seats available",
       });
     }
 
