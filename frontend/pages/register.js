@@ -7,6 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 function Register() {
   const router = useRouter();
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
