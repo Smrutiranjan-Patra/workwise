@@ -32,7 +32,7 @@ Follow these steps to set up the project:
 
 5. **Start the Backend Server** 
    ```sh
-   cd backend
+   cd ./backend/
    npm start
    ```
 
