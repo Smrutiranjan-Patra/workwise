@@ -1,0 +1,54 @@
+.seat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.col-1 {
+  flex: 0 0 14.28%; /* 100% / 7 seats per row */
+  max-width: 14.28%;
+  padding: 5px;
+}
+
+.seat {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.layout-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60em;
+}
+
+.seat-booking-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 10px 0;
+  width: 25em;
+}
+
+.btn-group {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.available {
+  background-color: lightgreen;
+}
+
+.booked {
+  background-color: lightgray;
+}
+
+.logout-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1em;
+}
