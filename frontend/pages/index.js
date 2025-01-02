@@ -15,6 +15,7 @@ const HomePage = () => {
 
   const [seats, setSeats] = useState([]);
   const [seatCount, setSeatCount] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // this use effect will run when the page loads and used for routing purpose
   useEffect(() => {
@@ -36,12 +37,14 @@ const HomePage = () => {
 
   //  used to fetch the data from the backend
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get(
         `${baseUrl}/api/seats/get/all` 
       );
       if (response.data.success) {
         setSeats(response.data.data);
+        setIsLoading(false);
       } else {
         toast.error(response.data.message);
       }
@@ -66,6 +69,7 @@ const HomePage = () => {
       return;
     }
 
+    setIsLoading(true);
     axios.post(`${baseUrl}/api/seats/book`, { seatCount })
     .then((res) => {
       if(res.data.success) {
@@ -90,11 +94,13 @@ const HomePage = () => {
       return;
     }
 
+    setIsLoading(true)
     axios.post(`${baseUrl}/api/seats/reset`)
     .then((res) => {
       if(res.data.success){
         toast.success(res.data.message);
         fetchData();
+        setIsLoading(false);
       } else {
         toast.error(res.data.message);
       }
@@ -110,8 +116,15 @@ const HomePage = () => {
     router.push("/login");
   }
 
-  return (
+  return isLoading ? (
+    <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+      <div className="spinner-border text-primary" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    </div>
+  ) : (
     <React.Fragment>
+    {/* logout button */}
     <button type="button" className="btn btn-danger logout-btn" onClick={() => {logout()}}>Logout</button>
     <div
       className="d-flex justify-content-center align-items-center"
