@@ -11,6 +11,8 @@ const Login = () => {
 
   const [formData, setFormData] = useState({ email: "", password: "" });
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   useEffect(() => {
     // Check if the token exists in localStorage
     const token = localStorage.getItem("token");
@@ -40,7 +42,7 @@ const Login = () => {
   const login = () => {
     if (validateForm()) {
       axios
-        .post("http://localhost:5000/api/auth/login", formData)
+        .post(`${baseUrl}/api/auth/login`, formData)
         .then((response) => {
           if (response.data.success) {
             localStorage.setItem("token", response.data.token);

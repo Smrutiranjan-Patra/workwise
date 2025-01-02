@@ -11,37 +11,49 @@ Follow these steps to set up the project:
 2. **Navigate to the project directory:**
 
    ```sh
-   cd workwise
+   cd ./workwise/
    ```
 
-3. **Install Frontend dependencies:**
+3. **Install Backend dependencies:**
 
    ```sh
-       cd frontend
-       npm install
-   ```
-
-4. **Install Backend dependencies:**
-
-   ```sh
-   cd backend
+   cd ./backend/
    npm install
    ```
 
-5. **Create a `.env` file:**
+4. **Create a `.env` file:**
 
    ```sh
-   cd backend
+   cd ./backend/
    cp .env.example .env
    ```
 
    Update the `.env` file with your configuration settings.
 
-6. **Run the development server:**
+5. **Start the Backend Server** 
    ```sh
    cd backend
    npm start
    ```
+
+5. **Open a New Terminal**
+
+5. **Install Frontend dependencies:**
+
+   ```sh
+       cd ./frontend/
+       npm install
+   ```
+
+5. **Create a `.env` file:**
+
+   ```sh
+   cd ./frontend/
+   cp .env.example .env
+   ```
+
+   Update the `.env` file with your configuration settings.
+
 7. **Start the nextjs application:**
 
 ```sh

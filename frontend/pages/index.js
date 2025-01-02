@@ -1,3 +1,4 @@
+require("dotenv").config();
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -5,9 +6,11 @@ import { useRouter } from "next/router";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Login from "./login";
 
 const HomePage = () => {
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const router = useRouter();
 
   const [seats, setSeats] = useState([]);
@@ -35,15 +38,15 @@ const HomePage = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/seats/get/all"
+        `${baseUrl}/api/seats/get/all` 
       );
       if (response.data.success) {
         setSeats(response.data.data);
       } else {
-        console.log("Error:", response.data.message);
+        toast.error(response.data.message);
       }
     } catch (error) {
-      alert("Failed to fetch seats data. Please try again later.");
+      toast.error("Failed to fetch seats data. Please try again later.");
     }
   };
 
@@ -63,7 +66,7 @@ const HomePage = () => {
       return;
     }
 
-    axios.post("http://localhost:5000/api/seats/book", { seatCount })
+    axios.post(`${baseUrl}/api/seats/book`, { seatCount })
     .then((res) => {
       if(res.data.success) {
         toast.success(res.data.message);
@@ -87,7 +90,7 @@ const HomePage = () => {
       return;
     }
 
-    axios.post("http://localhost:5000/api/seats/reset")
+    axios.post(`${baseUrl}/api/seats/reset`)
     .then((res) => {
       if(res.data.success){
         toast.success(res.data.message);

@@ -42,7 +42,7 @@ function Register() {
   const register = () => {
     if (validateForm()) {
       axios
-        .post("http://localhost:5000/api/auth/register", formData)
+        .post(`${baseUrl}/api/auth/register`, formData)
         .then((response) => {
           if (response.data.success) {
             toast.success(response.data.message);
