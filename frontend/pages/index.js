@@ -117,7 +117,7 @@ const HomePage = () => {
   }
 
   return isLoading ? (
-    <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+    <div className="d-flex justify-content-center align-items-center" style={{ height: "auto" }}>
       <div className="spinner-border text-primary" role="status">
         <span className="sr-only">Loading...</span>
       </div>
@@ -128,7 +128,7 @@ const HomePage = () => {
     <button type="button" className="btn btn-danger logout-btn" onClick={() => {logout()}}>Logout</button>
     <div
       className="d-flex justify-content-center align-items-center"
-      style={{ height: "100vh" }}
+      style={{ height: "auto" }}
     >
       <div className="text-center">
         <h1>Seat Booking App</h1>
