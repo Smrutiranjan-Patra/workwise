@@ -63,7 +63,7 @@ function Register() {
 
   return (
     <div className="container">
-      <h2>Login Page</h2>
+      <h2>Signup Page</h2>
       <div className="form-group">
         <label for="exampleInputEmail1">name</label>
         <input
