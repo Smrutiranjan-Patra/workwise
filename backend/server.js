@@ -8,8 +8,8 @@ const app = express();
 
 const port = process.env.PORT || 3001;
 
-app.use(cors({ origin: "https://seat-booking-app-xwr9.onrender.com/" })); // deployed route
-app.use(cors({ origin: "http://localhost:10000/" })); // Replace with your frontend origin
+app.use(cors());
+app.use(cors({ origin: "*", methods : "GET,POST", allowedHeaders: ["Content-Type", "Authorization"] })); // deployed route
 app.use(express.json());
 
 // Routes without authentication
